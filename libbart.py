@@ -9,15 +9,14 @@ from ipaddress import ip_address
 from dns import reversename
 
 
-def isIp(ip):
+def isIp(ip: str) -> bool:
     try:
-        if ip_address(ip):
-            return True
+        return bool(ip_address(ip))
     except ValueError:
         return None
 
 
-def read_ips_from_file(file_path):
+def read_ips_from_file(file_path: object) -> list:
     iplist = []
     if not os.path.isfile(file_path):
         return False
@@ -31,14 +30,14 @@ def read_ips_from_file(file_path):
     return iplist
 
 
-def atoptr(iplist):
+def atoptr(iplist: list) -> list:
     ptrlist = []
     for ip in iplist:
         ptrlist.append(reversename.from_address(ip).to_text())
     return ptrlist
 
 
-def maxlength(list_obj):
+def maxlength(list_obj: list) -> int:
     '''Getting the max length value of an iterable'''
     return len(max(list_obj, key=len))
 
