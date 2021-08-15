@@ -2,13 +2,12 @@
 *.bak
 **/__pycache__
 **/old/
-test*
 *.swp
 *.log
-*.txt
 *.py[cod]
 **/backup
 .stfolder
+.pytest_cache
 
 # Untracked other dir
 .ropeproject
